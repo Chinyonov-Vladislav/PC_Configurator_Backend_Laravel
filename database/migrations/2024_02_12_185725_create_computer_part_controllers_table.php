@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             #$table->unsignedBigInteger("computer_part_id");
             #$table->unsignedBigInteger("controller_id");
-            $table->foreignId("computer_part_id")->references("id")->on("computer_parts")->onUpdate("cascade")->onDelete("cascade");
-            $table->foreignId("controller_id")->references("id")->on("controllers")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("computer_part_id")->references("id")->on("computer_parts")
+                ->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("controller_id")->references("id")->on("controllers")
+                ->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }

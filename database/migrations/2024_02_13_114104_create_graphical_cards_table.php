@@ -34,7 +34,7 @@ return new class extends Migration
             #$table->unsignedBigInteger("sli_crossfire_type_id");
             $table->foreignId("manufacturer_id")->nullable()->references("id")->on("manufacturers")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("chipset_id")->nullable()->references("id")->on("graphical_card_chipsets")
+            $table->foreignId("chipset_id")->nullable()->references("id")->on("computer_part_chipsets")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("color_id")->nullable()->references("id")->on("colors")
                 ->onDelete("cascade")->onUpdate("cascade");

@@ -25,7 +25,7 @@ return new class extends Migration
             #$table->unsignedBigInteger("manufacturer_id");
             $table->foreignId("color_id")->nullable()->references("id")->on("colors")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("chipset_sound_card_id")->nullable()->references("id")->on("sound_card_chipsets")
+            $table->foreignId("chipset_sound_card_id")->nullable()->references("id")->on("computer_part_chipsets")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("channel_sound_card_id")->nullable()->references("id")->on("sound_card_channels")
                 ->onDelete("cascade")->onUpdate("cascade");

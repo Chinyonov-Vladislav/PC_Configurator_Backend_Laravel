@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class motherboard_m2_slot extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

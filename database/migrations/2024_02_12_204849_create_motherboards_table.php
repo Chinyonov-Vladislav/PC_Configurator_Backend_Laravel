@@ -26,7 +26,7 @@ return new class extends Migration
             #$table->unsignedBigInteger("manufacturer_id");
             #$table->unsignedBigInteger("socket_id");
             #$table->unsignedBigInteger("wireless_networking_type_id");
-            $table->foreignId("chipset_id")->nullable()->references("id")->on("chipsets")
+            $table->foreignId("chipset_id")->nullable()->references("id")->on("computer_part_chipsets")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("form_factor_id")->nullable()->references("id")->on("computer_part_form_factors")
                 ->onDelete("cascade")->onUpdate("cascade");
@@ -40,7 +40,6 @@ return new class extends Migration
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("link_id")->references("id")->on("computer_parts_links")
                 ->onDelete("cascade")->onUpdate("cascade");
-
             $table->timestamps();
         });
     }

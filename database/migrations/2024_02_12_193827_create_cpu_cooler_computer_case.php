@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Compability_cpu_cooler_pc_cases', function (Blueprint $table) {
+        Schema::create('Compatibility_cpu_cooler_pc_cases', function (Blueprint $table) {
             $table->id();
             #$table->unsignedBigInteger("cpu_cooler_id");
             #$table->unsignedBigInteger("computer_case_form_factor_id");

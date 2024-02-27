@@ -44,6 +44,8 @@ return new class extends Migration
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("bearing_type_id")->nullable()->references("id")->on("computer_part_bearing_types")
                 ->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId("link_id")->references("id")->on("computer_parts_links")
+                ->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });
     }

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class supported_m2_slot_form_factor extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

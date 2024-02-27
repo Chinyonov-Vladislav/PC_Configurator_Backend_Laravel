@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class motherboard_port extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

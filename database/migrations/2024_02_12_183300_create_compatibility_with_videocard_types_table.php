@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('graphical_card_chipsets', function (Blueprint $table) {
+        Schema::create('compatibility_with_videocard_types', function (Blueprint $table) {
             $table->id();
             $table->string("name",1000);
             $table->timestamps();
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('graphical_card_chipsets');
+        Schema::dropIfExists('compablity_with_videocard_types');
     }
 };

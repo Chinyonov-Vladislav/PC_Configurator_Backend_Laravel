@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Wifi_card_antenna extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

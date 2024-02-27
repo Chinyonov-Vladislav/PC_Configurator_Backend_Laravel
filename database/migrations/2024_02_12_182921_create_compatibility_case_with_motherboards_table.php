@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('compability_case_with_motherboards', function (Blueprint $table) {
+        Schema::create('compatibility_case_with_motherboards', function (Blueprint $table) {
             $table->id();
             #$table->unsignedBigInteger("motherboard_form_factor_id");
             #$table->unsignedBigInteger("case_id");

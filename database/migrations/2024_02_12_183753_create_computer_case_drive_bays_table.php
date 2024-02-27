@@ -16,8 +16,10 @@ return new class extends Migration
             #$table->unsignedBigInteger("computer_case_id");
             #$table->unsignedBigInteger("drive_bay_id");
             $table->unsignedBigInteger("count");
-            $table->foreignId("computer_case_id")->references("id")->on("computer_cases")->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("drive_bay_id")->references("id")->on("drive_bays")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId("computer_case_id")->references("id")->on("computer_cases")
+                ->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId("drive_bay_id")->references("id")->on("drive_bays")
+                ->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });
     }
