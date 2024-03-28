@@ -12,6 +12,9 @@ class Computer_parts_link extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $casts = [
+        "is_parsed"=>"boolean"
+    ];
     public function computer_part(): BelongsTo
     {
         return $this->belongsTo(Computer_part::class, "computer_part_id");
@@ -64,5 +67,8 @@ class Computer_parts_link extends Model
     {
         return $this->hasOne(Wired_network_card::class, "link_id");
     }
-
+    public function wifi_cards(): HasOne
+    {
+        return $this->hasOne(Wifi_card::class, "link_id");
+    }
 }

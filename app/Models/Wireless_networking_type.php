@@ -10,9 +10,12 @@ class Wireless_networking_type extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function computer_parts(): BelongsToMany
+    public function motherboards()
     {
-        return $this->belongsToMany(Computer_part::class,"computer_part_wireless_networking_types",
-            "wireless_networking_type_id","computer_part_id");
+        return $this->hasMany(Motherboard::class, "wireless_networking_type_id");
+    }
+    public function wifi_cards()
+    {
+        return $this->hasMany(Wifi_card::class, "protocol_id");
     }
 }

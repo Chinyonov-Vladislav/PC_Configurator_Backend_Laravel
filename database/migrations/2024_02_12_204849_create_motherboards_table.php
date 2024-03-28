@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('motherboards', function (Blueprint $table) {
             $table->id();
             $table->string("image",5000)->nullable();
-            $table->unsignedBigInteger("count_sockets")->nullable();
             $table->string("model",1000)->nullable();
+            $table->unsignedBigInteger("count_sockets")->nullable();
             $table->unsignedBigInteger("count_memory_slots")->nullable();
             $table->unsignedBigInteger("memory_max_gb")->nullable();
             $table->boolean("onboard_video")->nullable();
@@ -26,15 +26,15 @@ return new class extends Migration
             #$table->unsignedBigInteger("manufacturer_id");
             #$table->unsignedBigInteger("socket_id");
             #$table->unsignedBigInteger("wireless_networking_type_id");
-            $table->foreignId("chipset_id")->nullable()->references("id")->on("computer_part_chipsets")
+            $table->foreignId("chipset_id")->nullable()->references("id")->on("chipsets")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("form_factor_id")->nullable()->references("id")->on("computer_part_form_factors")
+            $table->foreignId("form_factor_id")->nullable()->references("id")->on("form_factors")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("manufacturer_id")->nullable()->references("id")->on("manufacturers")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("socket_id")->nullable()->references("id")->on("sockets")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("wireless_networking_type_id")->nullable()->references("id")->on("computer_part_wireless_networking_types")
+            $table->foreignId("wireless_networking_type_id")->nullable()->references("id")->on("wireless_networking_types")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("memory_type_id")->nullable()->references("id")->on("type_memories")
                 ->onDelete("cascade")->onUpdate("cascade");

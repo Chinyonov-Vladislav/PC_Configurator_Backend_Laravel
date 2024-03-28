@@ -16,11 +16,11 @@ return new class extends Migration
             $table->string("image",5000)->nullable();
             $table->string("model",1000)->nullable();
             $table->unsignedBigInteger("total_capacity_memory")->nullable();
-            $table->float("cas_latency")->nullable();
-            $table->float("first_word_latency")->nullable();
+            $table->double("cas_latency")->nullable();
+            $table->double("first_word_latency")->nullable();
             $table->boolean("heat_spreader")->nullable();
-            $table->float("voltage")->nullable();
-            $table->float("price_gb")->nullable();
+            $table->double("voltage")->nullable();
+            $table->double("price_gb")->nullable();
             #$table->unsignedBigInteger("color_id");
             #$table->unsignedBigInteger("manufacturer_id");
             #$table->unsignedBigInteger("form_factor_id");
@@ -32,7 +32,7 @@ return new class extends Migration
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("manufacturer_id")->nullable()->references("id")->on("manufacturers")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("form_factor_id")->nullable()->references("id")->on("computer_part_form_factors")
+            $table->foreignId("form_factor_id")->nullable()->references("id")->on("form_factors")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("module_id")->nullable()->references("id")->on("ram_modules")
                 ->onDelete("cascade")->onUpdate("cascade");

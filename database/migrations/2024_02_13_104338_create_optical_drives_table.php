@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("image",5000)->nullable();
             $table->string("model",1000)->nullable();
-            $table->float("buffer_cache_mb")->nullable();
+            $table->double("buffer_cache_mb")->nullable();
             $table->unsignedBigInteger("bd_minus_rom_speed")->nullable();
             $table->unsignedBigInteger("dvd_minus_rom_speed")->nullable();
             $table->unsignedBigInteger("cd_minus_rom_speed")->nullable();
@@ -40,9 +40,9 @@ return new class extends Migration
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("manufacturer_id")->nullable()->references("id")->on("manufacturers")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("form_factor_id")->nullable()->references("id")->on("computer_part_form_factors")
+            $table->foreignId("form_factor_id")->nullable()->references("id")->on("form_factors")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_part_interfaces")
+            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_interfaces")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("link_id")->references("id")->on("computer_parts_links")
                 ->onDelete("cascade")->onUpdate("cascade");

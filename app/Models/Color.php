@@ -54,4 +54,8 @@ class Color extends Model
     {
         return $this->hasMany(Wired_network_card::class, "color_id");
     }
+    public function wifi_cards()
+    {
+        return $this->hasMany(Wifi_card::class, "color_id");
+    }
 }

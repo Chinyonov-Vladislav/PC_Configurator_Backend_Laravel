@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger("count");
             $table->foreignId("motherboard_id")->references("id")->on("motherboards")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("interface_id")->references("id")->on("computer_part_interfaces")
+            $table->foreignId("interface_id")->references("id")->on("computer_interfaces")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });

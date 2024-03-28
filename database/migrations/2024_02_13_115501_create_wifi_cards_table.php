@@ -20,11 +20,11 @@ return new class extends Migration
             #$table->unsignedBigInteger("protocol_id");
             #$table->unsignedBigInteger("operating_range_id");
             #$table->unsignedBigInteger("color_id");
-            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_part_interfaces")
+            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_interfaces")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("manufacturer_id")->nullable()->references("id")->on("manufacturers")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("protocol_id")->nullable()->references("id")->on("computer_part_wireless_networking_types")
+            $table->foreignId("protocol_id")->nullable()->references("id")->on("wireless_networking_types")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("operating_range_id")->nullable()->references("id")->on("operating_ranges")
                 ->onDelete("cascade")->onUpdate("cascade");

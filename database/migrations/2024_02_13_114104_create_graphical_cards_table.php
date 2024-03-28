@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('graphical_cards', function (Blueprint $table) {
             $table->id();
             $table->string("image",5000)->nullable();
-            $table->float("count_memory_gb")->nullable();
+            $table->double("count_memory_gb")->nullable();
             $table->unsignedBigInteger("clock_core_mhz")->nullable();
             $table->unsignedBigInteger("boost_clock_mhz")->nullable();
             $table->unsignedBigInteger("length_mm")->nullable();
@@ -34,7 +34,7 @@ return new class extends Migration
             #$table->unsignedBigInteger("sli_crossfire_type_id");
             $table->foreignId("manufacturer_id")->nullable()->references("id")->on("manufacturers")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("chipset_id")->nullable()->references("id")->on("computer_part_chipsets")
+            $table->foreignId("chipset_id")->nullable()->references("id")->on("chipsets")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("color_id")->nullable()->references("id")->on("colors")
                 ->onDelete("cascade")->onUpdate("cascade");
@@ -46,9 +46,7 @@ return new class extends Migration
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("frame_sync_type_id")->nullable()->references("id")->on("frame_sync_types")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_part_interfaces")
-                ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("sli_crossfire_type_id")->nullable()->references("id")->on("sli_crossfire_types")
+            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_interfaces")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("link_id")->references("id")->on("computer_parts_links")
                 ->onDelete("cascade")->onUpdate("cascade");

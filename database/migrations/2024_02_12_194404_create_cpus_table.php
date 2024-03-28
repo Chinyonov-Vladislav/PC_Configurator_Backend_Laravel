@@ -13,22 +13,21 @@ return new class extends Migration
     {
         Schema::create('cpus', function (Blueprint $table) {
             $table->id();
-
             $table->string("image",5000)->nullable();
-            $table->float("performance_core_clock_ghz")->nullable();
+            $table->double("performance_core_clock_ghz")->nullable();
             $table->unsignedBigInteger("core_count")->nullable();
-            $table->float("performance_boost_clock_ghz")->nullable();
+            $table->double("performance_boost_clock_ghz")->nullable();
             $table->unsignedBigInteger("tdp_w")->nullable();
             $table->boolean("includes_cooler")->nullable();
             $table->boolean("ecc_support")->nullable();
             $table->unsignedBigInteger("maximum_supported_memory_gb")->nullable();
             $table->unsignedBigInteger("l1_cache_performance_data_kbs")->nullable();
             $table->unsignedBigInteger("l1_cache_performance_instruction_kbs")->nullable();
-            $table->float("l1_cache_efficiency_instruction_kbs")->nullable();
-            $table->float("l1_cache_efficiency_data_kbs")->nullable();
-            $table->float("l2_cache_performance_mbs")->nullable();
-            $table->float("l2_cache_efficiency_mbs")->nullable();
-            $table->float("l3_cache_mbs")->nullable();
+            $table->double("l1_cache_efficiency_instruction_kbs")->nullable();
+            $table->double("l1_cache_efficiency_data_kbs")->nullable();
+            $table->double("l2_cache_performance_mbs")->nullable();
+            $table->double("l2_cache_efficiency_mbs")->nullable();
+            $table->double("l3_cache_mbs")->nullable();
             $table->unsignedBigInteger("lithography_nm")->nullable();
             $table->boolean("multithreading")->nullable();
             $table->boolean("SMT")->nullable();

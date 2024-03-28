@@ -2,48 +2,21 @@
 
 namespace App\Http\Filters;
 
+use App\Traits\FilterHelpers;
+
 class WiredNetworkCardFilter extends QueryFilter
 {
-    public function manufacturer($manufacturers): void
+    use FilterHelpers;
+    public function manufacturer($parameters): void
     {
-        $this->builder->whereHas("manufacturer", function ($query) use ($manufacturers)
-        {
-            if (is_array($manufacturers))
-            {
-                $query->whereIn("name", $manufacturers);
-            }
-            elseif (is_string($manufacturers))
-            {
-                $query->where("name", $manufacturers);
-            }
-        });
+        $this->filterRelationByName($parameters, "manufacturer", $this->builder);
     }
-    public function color($colors)
+    public function color($parameters): void
     {
-        $this->builder->whereHas("color", function ($query) use ($colors)
-        {
-            if (is_array($colors))
-            {
-                $query->whereIn("name", $colors);
-            }
-            elseif (is_string($colors))
-            {
-                $query->where("name", $colors);
-            }
-        });
+        $this->filterRelationByName($parameters, "color", $this->builder);
     }
-    public function interface($interfaces)
+    public function interface($parameters): void
     {
-        $this->builder->whereHas("interface.interface", function ($query) use ($interfaces){
-            if (is_array($interfaces))
-            {
-                $query->whereIn("name", $interfaces);
-            }
-            elseif (is_string($interfaces))
-            {
-                $query->where("name", $interfaces);
-            }
-        });
-
+        $this->filterRelationByName($parameters, "interface", $this->builder);
     }
 }

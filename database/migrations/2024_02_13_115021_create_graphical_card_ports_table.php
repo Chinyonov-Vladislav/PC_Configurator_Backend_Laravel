@@ -16,7 +16,7 @@ return new class extends Migration
             #$table->unsignedBigInteger("port_id");
             #$table->unsignedBigInteger("graphical_card_id");
             $table->unsignedBigInteger("count");
-            $table->foreignId("port_id")->references("id")->on("computer_part_ports")
+            $table->foreignId("port_id")->references("id")->on("ports")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("graphical_card_id")->references("id")->on("graphical_cards")
                 ->onDelete("cascade")->onUpdate("cascade");

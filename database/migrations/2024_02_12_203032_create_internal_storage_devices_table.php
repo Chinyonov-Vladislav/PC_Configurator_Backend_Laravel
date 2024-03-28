@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("image",5000)->nullable();
             $table->unsignedBigInteger("cache_mb")->nullable();
             $table->unsignedBigInteger("capacity_gb")->nullable();
-            $table->decimal("price_for_gb",10,2)->nullable();
+            $table->decimal("price_for_gb",10)->nullable();
             $table->boolean("nvme")->nullable();
             $table->unsignedBigInteger("full_disk_write_throughput_mb_s")->nullable();
             $table->unsignedBigInteger("full_disk_write_throughput_last_10_seconds_mb_s")->nullable();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger("sequential_write_throughput_disk_50_full")->nullable();
             $table->string("model",1000)->nullable();
             $table->boolean("power_loss_protection")->nullable();
-            $table->float("hybrid_ssd_cache_mb")->nullable();
+            $table->double("hybrid_ssd_cache_mb")->nullable();
             $table->unsignedBigInteger("rpm")->nullable();
             #$table->unsignedBigInteger("form_factor_id");
             #$table->unsignedBigInteger("interface_id");
@@ -34,11 +34,11 @@ return new class extends Migration
             #$table->unsignedBigInteger("type_internal_storage_device_id");
             #$table->unsignedBigInteger("ssd_nand_flash_type_id");
             #$table->unsignedBigInteger("manufacturer_id");
-            $table->foreignId("form_factor_id")->nullable()->references("id")->on("computer_part_form_factors")
+            $table->foreignId("form_factor_id")->nullable()->references("id")->on("form_factors")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_part_interfaces")
+            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_interfaces")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("ssd_controller_id")->nullable()->references("id")->on("computer_part_controllers")
+            $table->foreignId("ssd_controller_id")->nullable()->references("id")->on("controllers")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("type_internal_storage_device_id")->nullable()->references("id")->on("type_internal_storage_devices")
                 ->onDelete("cascade")->onUpdate("cascade");

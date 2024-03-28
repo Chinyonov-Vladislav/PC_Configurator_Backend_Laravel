@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("image",5000)->nullable();
             $table->string("model",1000)->nullable();
             $table->unsignedBigInteger("value_sample_rate_hz")->nullable();
-            $table->float("signal_to_noise_ratio")->nullable();
+            $table->double("signal_to_noise_ratio")->nullable();
             #$table->unsignedBigInteger("color_id");
             #$table->unsignedBigInteger("chipset_sound_card_id");
             #$table->unsignedBigInteger("channel_sound_card_id");
@@ -25,11 +25,11 @@ return new class extends Migration
             #$table->unsignedBigInteger("manufacturer_id");
             $table->foreignId("color_id")->nullable()->references("id")->on("colors")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("chipset_sound_card_id")->nullable()->references("id")->on("computer_part_chipsets")
+            $table->foreignId("chipset_sound_card_id")->nullable()->references("id")->on("chipsets")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("channel_sound_card_id")->nullable()->references("id")->on("sound_card_channels")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_part_interfaces")
+            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_interfaces")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("sound_card_bit_depth_id")->nullable()->references("id")->on("sound_card_bit_depths")
                 ->onDelete("cascade")->onUpdate("cascade");

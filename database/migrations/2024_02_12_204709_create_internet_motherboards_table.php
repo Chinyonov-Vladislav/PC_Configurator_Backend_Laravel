@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('internet_motherboards', function (Blueprint $table) {
             $table->id();
-            $table->float("speed_gb_s");
+            $table->double("speed_gb_s");
             $table->string("model",1000)->nullable();
             #$table->unsignedBigInteger("manufacturer_id");
             $table->foreignId("manufacturer_id")->nullable()->references("id")->on("manufacturers")

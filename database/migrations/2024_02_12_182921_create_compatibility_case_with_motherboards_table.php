@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             #$table->unsignedBigInteger("motherboard_form_factor_id");
             #$table->unsignedBigInteger("case_id");
-            $table->foreignId("form_factor_id")->references("id")->on("computer_part_form_factors")
+            $table->foreignId("form_factor_id")->references("id")->on("form_factors")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("computer_case_id")->references("id")->on("computer_cases")
                 ->onDelete("cascade")->onUpdate("cascade");

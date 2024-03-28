@@ -22,7 +22,7 @@ return new class extends Migration
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("color_id")->nullable()->references("id")->on("colors")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_part_interfaces")
+            $table->foreignId("interface_id")->nullable()->references("id")->on("computer_interfaces")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("link_id")->references("id")->on("computer_parts_links")
                 ->onDelete("cascade")->onUpdate("cascade");

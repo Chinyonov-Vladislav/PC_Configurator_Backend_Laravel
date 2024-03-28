@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string("image",5000)->nullable();
             $table->boolean("fanless")->nullable();
-            $table->float("fan_rpm_min")->nullable();
-            $table->float("fan_rpm_max")->nullable();
-            $table->float("fan_rpm")->nullable();
+            $table->unsignedBigInteger("fan_rpm_min")->nullable();
+            $table->unsignedBigInteger("fan_rpm_max")->nullable();
+            $table->unsignedBigInteger("fan_rpm")->nullable();
             $table->unsignedBigInteger("height_mm")->nullable();
-            $table->float("noise_level_min")->nullable();
-            $table->float("noise_level_max")->nullable();
-            $table->float("noise_level")->nullable();
+            $table->double("noise_level_min")->nullable();
+            $table->double("noise_level_max")->nullable();
+            $table->double("noise_level")->nullable();
             $table->unsignedBigInteger("radiator_size")->nullable();
             $table->boolean("water_cooled")->nullable();
             $table->string("model")->nullable();
@@ -32,7 +32,7 @@ return new class extends Migration
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("manufacturer_id")->nullable()->references("id")->on("manufacturers")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("bearing_type_id")->nullable()->references("id")->on("computer_part_bearing_types")
+            $table->foreignId("bearing_type_id")->nullable()->references("id")->on("bearing_types")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("link_id")->references("id")->on("computer_parts_links")
                 ->onDelete("cascade")->onUpdate("cascade");

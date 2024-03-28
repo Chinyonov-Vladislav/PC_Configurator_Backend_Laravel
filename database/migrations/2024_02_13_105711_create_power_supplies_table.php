@@ -32,7 +32,7 @@ return new class extends Migration
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("modular_type_id")->nullable()->references("id")->on("modular_power_supply_types")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("form_factor_id")->nullable()->references("id")->on("computer_part_form_factors")
+            $table->foreignId("form_factor_id")->nullable()->references("id")->on("form_factors")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("link_id")->references("id")->on("computer_parts_links")
                 ->onDelete("cascade")->onUpdate("cascade");

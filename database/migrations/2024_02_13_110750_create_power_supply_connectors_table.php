@@ -16,7 +16,7 @@ return new class extends Migration
             #$table->unsignedBigInteger("connector_id");
             #$table->unsignedBigInteger("power_supply_id");
             $table->unsignedBigInteger("count")->nullable();
-            $table->foreignId("connector_id")->references("id")->on("computer_part_connectors")
+            $table->foreignId("connector_id")->references("id")->on("connectors")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->foreignId("power_supply_id")->references("id")->on("power_supplies")
                 ->onDelete("cascade")->onUpdate("cascade");

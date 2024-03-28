@@ -10,9 +10,9 @@ class Expansion_slot extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function computer_parts(): BelongsToMany
+    public function computer_cases(): BelongsToMany
     {
-        return $this->belongsToMany(Expansion_slot::class, "computer_part_expansion_slots",
-            "expansion_slot_id","computer_part_id");
+        return $this->belongsToMany(Computer_case::class, "computer_case_expansion_slots",
+            "expansion_slot_id","computer_case_id");
     }
 }

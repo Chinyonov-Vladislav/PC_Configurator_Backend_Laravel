@@ -17,7 +17,7 @@ return new class extends Migration
             #$table->unsignedBigInteger("computer_port_id");
             $table->foreignId("computer_case_id")->references("id")->on("computer_cases")
                 ->onDelete("cascade")->onUpdate("cascade");
-            $table->foreignId("computer_port_id")->references("id")->on("computer_part_ports")
+            $table->foreignId("computer_port_id")->references("id")->on("ports")
                 ->onDelete("cascade")->onUpdate("cascade");
             $table->timestamps();
         });
